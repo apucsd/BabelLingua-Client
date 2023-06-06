@@ -49,6 +49,7 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
   const authInfo = {
+    text: "hll",
     user,
     loading,
     createUser,

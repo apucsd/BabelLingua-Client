@@ -1,18 +1,17 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { FaEye, FaEyeSlash, FaSpinner } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import useAuth from "../../../hooks/useAuth";
 
 const Register = () => {
-  const [message, setMessage] = useState("");
-  const [errormessage, setErrorMessage] = useState("");
+  const { createUser } = useAuth();
   const [showPass, setShowPass] = useState(false);
   const loading = false;
-  const emailRef = useRef();
-
+  console.log(createUser);
   const {
     register,
     handleSubmit,

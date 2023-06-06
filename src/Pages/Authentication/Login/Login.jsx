@@ -24,12 +24,12 @@ const Login = () => {
   //   ?reset email sent
   const handleResetPassword = async (event) => {
     event.preventDefault();
-    setMessage("");
-    setErrorMessage("");
-    const email = emailRef.current.value;
-    if (!email) {
-      toast.error("Please enter your email first");
-    }
+    // setMessage("");
+    // setErrorMessage("");
+    // const email = emailRef.current.value;
+    // if (!email) {
+    //   toast.error("Please enter your email first");
+    // }
     // await resetPassword(email)
     //   .then(() => {
     //     setMessage(`Please check your email${email}`);
