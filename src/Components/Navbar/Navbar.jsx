@@ -3,11 +3,11 @@ import { Link, NavLink } from "react-router-dom";
 import Swal from "sweetalert2";
 import { toast } from "react-hot-toast";
 import { FaGraduationCap } from "react-icons/fa";
+import useAuth from "../../hooks/useAuth";
 
 const Navbar = () => {
-  //   const { user, logOut } = useAuth();
-  //   console.log(user);
-  const user = false;
+  const { user, logOut } = useAuth();
+
   const links = (
     <>
       <li>
@@ -43,22 +43,22 @@ const Navbar = () => {
     </>
   );
 
-  //   const handleLogOut = () => {
-  //     Swal.fire({
-  //       title: "Are you sure?",
+  const handleLogOut = () => {
+    Swal.fire({
+      title: "Are you sure?",
 
-  //       showCancelButton: true,
-  //       confirmButtonColor: "#F63E7B",
-  //       cancelButtonColor: "#04B404",
-  //       confirmButtonText: "Logout",
-  //     }).then((result) => {
-  //       if (result.isConfirmed) {
-  //         logOut().then(() => {
-  //           toast.success("Logout is successful");
-  //         });
-  //       }
-  //     });
-  //   };
+      showCancelButton: true,
+      confirmButtonColor: "#F63E7B",
+      cancelButtonColor: "#04B404",
+      confirmButtonText: "Logout",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        logOut().then(() => {
+          toast.success("Logout is successful");
+        });
+      }
+    });
+  };
   return (
     <div className={`navbar bg-base-100  z-10 max-w-screen-lg navbar-img`}>
       <div className="navbar-start">
@@ -115,30 +115,6 @@ const Navbar = () => {
               >
                 <li className="font-medium">
                   <Link
-                    to="/profile"
-                    className="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-indigo-700"
-                  >
-                    <div className="mr-3">
-                      <svg
-                        className="w-6 h-6"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                        ></path>
-                      </svg>
-                    </div>
-                    Profile
-                  </Link>
-                </li>
-                <li className="font-medium">
-                  <Link
                     to="dashboard"
                     className="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-indigo-700"
                   >
@@ -167,12 +143,9 @@ const Navbar = () => {
                     DashBoard
                   </Link>
                 </li>
-                <li
-                  // onClick={handleLogOut}
-                  className="font-medium"
-                >
-                  <a className="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-pink-600">
-                    <div className="mr-3 text-pink-600">
+                <li onClick={handleLogOut} className="font-medium">
+                  <a className="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-indigo-600">
+                    <div className="mr-3 text-indigo-600">
                       <svg
                         className="w-6 h-6"
                         fill="none"
