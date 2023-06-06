@@ -1,5 +1,20 @@
+import { toast } from "react-hot-toast";
+import useAuth from "../../../hooks/useAuth";
+import { useNavigate } from "react-router";
+
 const SocialLogin = () => {
-  const handleGoogleLogin = () => {};
+  const { googleLogin } = useAuth();
+  const navigate = useNavigate();
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then((result) => {
+        toast.success("Your account is created successfully");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+        navigate("/");
+      });
+  };
   return (
     <div className="w-full space-y-4">
       <div className="relative flex items-center justify-center mx-4">

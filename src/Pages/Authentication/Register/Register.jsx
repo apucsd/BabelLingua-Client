@@ -141,7 +141,7 @@ const Register = () => {
             <div className="w-full">
               <button className="primary-btn w-full">
                 {loading ? (
-                  <FaSpinner className="animate-spin mx-auto text-center text-lg"></FaSpinner>
+                  <FaSpinner className="animate-spin mx-auto text-center text-xl"></FaSpinner>
                 ) : (
                   "Register"
                 )}
