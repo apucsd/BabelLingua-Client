@@ -6,23 +6,28 @@ import { FaEye, FaEyeSlash, FaSpinner } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import useAuth from "../../../hooks/useAuth";
+import getImageURL from "../../../resuable/getImageURL";
 
 const Register = () => {
   const { createUser } = useAuth();
   const [showPass, setShowPass] = useState(false);
   const loading = false;
-  console.log(createUser);
+
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     if (data.password !== data.confirmPassword) {
       return toast.error("Your confirm password didn't matched");
     }
 
+    // get image url from function
+    console.log(data.image[0]);
+    const photoURL = await getImageURL(data.image[0]);
+    console.log(photoURL);
     console.log(data);
   };
 
