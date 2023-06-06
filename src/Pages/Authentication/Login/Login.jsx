@@ -3,15 +3,19 @@ import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { FaEye, FaEyeSlash, FaSpinner } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import useAuth from "../../../hooks/useAuth";
 
 const Login = () => {
+  const { loginUser, resetPassword } = useAuth();
   const [message, setMessage] = useState("");
   const [errormessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
   const [showPass, setShowPass] = useState(false);
-  const loading = false;
+
   const emailRef = useRef();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -19,35 +23,44 @@ const Login = () => {
     watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    setLoading(true);
+
+    loginUser(data.email, data.password)
+      .then((result) => {
+        setLoading(false);
+        toast.success("Your login is successful");
+        navigate("/");
+      })
+      .catch((err) => {
+        toast.error("User not found or wrong password");
+        setLoading(false);
+      });
+  };
 
   //   ?reset email sent
   const handleResetPassword = async (event) => {
     event.preventDefault();
-    // setMessage("");
-    // setErrorMessage("");
-    // const email = emailRef.current.value;
-    // if (!email) {
-    //   toast.error("Please enter your email first");
-    // }
-    // await resetPassword(email)
-    //   .then(() => {
-    //     setMessage(`Please check your email${email}`);
-    //     toast.success(`A reset email has sent to ${email}`);
-    //     setTimeout(() => {
-    //       closeButtonRef.current.click();
-    //       setMessage("");
-    //     }, 2000);
-    //   })
-    //   .catch(() => {
-    //     setErrorMessage("Invalid user or something wrong");
-    //   });
+    setMessage("");
+    setErrorMessage("");
+    const email = emailRef.current.value;
+    if (!email) {
+      toast.error("Please enter your email first");
+    }
+    await resetPassword(email)
+      .then(() => {
+        setMessage(`Please check your email ${email}`);
+        toast.success(`A reset email has sent to ${email}`);
+      })
+      .catch(() => {
+        setErrorMessage("Your email did't found");
+      });
   };
   return (
     <div className="bg-white py-6 sm:py-8 lg:py-12">
       <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
         <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl">
-          Welcome Back (name)!
+          Welcome Back !
         </h2>
 
         <form
@@ -99,7 +112,7 @@ const Login = () => {
             <div className="w-full">
               <button className="primary-btn w-full">
                 {loading ? (
-                  <FaSpinner className="animate-spin mx-auto text-center text-lg"></FaSpinner>
+                  <FaSpinner className="animate-spin mx-auto text-center text-xl"></FaSpinner>
                 ) : (
                   "Login"
                 )}
@@ -128,7 +141,16 @@ const Login = () => {
               <button className="primary-btn">Get Reset Email</button>
             </span>
           </div>
-
+          {message && (
+            <p className="text-green-500 text-center mt-2  duration-100">
+              {message}
+            </p>
+          )}
+          {errormessage && (
+            <p className="text-red-500 text-center mt-2 duration-100">
+              {errormessage}
+            </p>
+          )}
           <div className="modal-action">
             {/* if there is a button in form, it will close the modal */}
             <button className="btn">Close</button>
