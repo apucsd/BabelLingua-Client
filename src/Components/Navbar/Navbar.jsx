@@ -22,12 +22,12 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="/our-team"
+          to="/instructors"
           className={({ isActive, isPending }) =>
             isPending ? "pending" : isActive ? "font-bold" : ""
           }
         >
-          Our Team
+          Instructors
         </NavLink>
       </li>
       <li>
@@ -37,7 +37,7 @@ const Navbar = () => {
             isPending ? "pending" : isActive ? "font-bold" : ""
           }
         >
-          Contact Us
+          Classes
         </NavLink>
       </li>
     </>
@@ -48,7 +48,7 @@ const Navbar = () => {
       title: "Are you sure?",
 
       showCancelButton: true,
-      confirmButtonColor: "#F63E7B",
+      confirmButtonColor: "#4338ca",
       cancelButtonColor: "#04B404",
       confirmButtonText: "Logout",
     }).then((result) => {
@@ -88,7 +88,7 @@ const Navbar = () => {
           </ul>
         </div>
         <Link className="" to="/">
-          <span className="btn btn-ghost normal-case text-xl">
+          <span className=" normal-case text-xl">
             <FaGraduationCap className="text-4xl text-primary"></FaGraduationCap>{" "}
             BabelLingua
           </span>
