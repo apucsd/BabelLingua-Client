@@ -7,11 +7,12 @@ import { Link } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import useAuth from "../../../hooks/useAuth";
 import getImageURL from "../../../resuable/getImageURL";
+import { updateProfile } from "@firebase/auth";
 
 const Register = () => {
   const { createUser } = useAuth();
   const [showPass, setShowPass] = useState(false);
-  const loading = false;
+  const [loading, setLoading] = useState(false);
 
   const {
     register,
@@ -20,14 +21,31 @@ const Register = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = async (data) => {
+    setLoading(true);
     if (data.password !== data.confirmPassword) {
       return toast.error("Your confirm password didn't matched");
     }
 
     // get image url from function
-    console.log(data.image[0]);
+
     const photoURL = await getImageURL(data.image[0]);
-    console.log(photoURL);
+    if (photoURL) {
+      createUser(data.email, data.password)
+        .then((result) => {
+          updateProfile(result.user, {
+            displayName: data.name,
+            photoURL: photoURL,
+          }).then(() => {
+            toast.success("Your account is created successfully");
+            setLoading(false);
+          });
+        })
+        .catch((error) => {
+          toast.error(error.message);
+          setLoading(false);
+        });
+    }
+
     console.log(data);
   };
 
