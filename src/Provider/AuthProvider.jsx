@@ -10,6 +10,7 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
+import useCustomAxios from "../hooks/useCustomAxios";
 
 const auth = getAuth(app);
 export const AuthContext = createContext();
@@ -28,6 +29,7 @@ const AuthProvider = ({ children }) => {
   };
   const logOut = () => {
     setLoading(true);
+    localStorage.removeItem("access-token");
 
     return signOut(auth);
   };
@@ -43,6 +45,18 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
+      if (currentUser) {
+        fetch("http://localhost:5000/jwt", {
+          method: "POST",
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("access-token", data.token);
+          });
+      } else {
+        localStorage.removeItem("access-token");
+      }
     });
     return () => {
       return unsubscribe();
