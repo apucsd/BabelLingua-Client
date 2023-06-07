@@ -7,6 +7,7 @@ import Register from "../Pages/Authentication/Register/Register";
 import MYClass from "../Pages/DashBoard/Student/MyClass/MYClass";
 import DashBoard from "../Pages/DashBoard/DashBoard/DashBoard";
 import PrivateRoute from "./PrivateRoute";
+import ManageUser from "../Pages/DashBoard/Admin/ManageUser/ManageUser";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "my-class",
         element: <MYClass></MYClass>,
+      },
+      {
+        path: "manage-users",
+        element: <ManageUser></ManageUser>,
       },
     ],
   },
