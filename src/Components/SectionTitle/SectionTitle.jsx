@@ -2,7 +2,7 @@ import React from "react";
 
 const SectionTitle = ({ heading, subheading }) => {
   return (
-    <div className="flex justify-center items-center my-8">
+    <div className="flex justify-center items-center my-10">
       <div>
         <h1 className="font-bold uppercase  text-3xl border-x-4 border-primary p-2 inline-block w-auto">
           {heading}

@@ -9,7 +9,9 @@ const PopularClass = () => {
         heading="Popular Classes"
         subheading="Top 6 Popular Classes"
       ></SectionTitle>
-      <PopularClassCard></PopularClassCard>
+      <div className="grid md:grid-cols-3">
+        <PopularClassCard></PopularClassCard>
+      </div>
     </div>
   );
 };
