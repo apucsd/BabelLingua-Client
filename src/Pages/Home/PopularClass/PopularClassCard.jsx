@@ -2,6 +2,15 @@ import React from "react";
 import { FaDollarSign } from "react-icons/fa";
 
 const PopularClassCard = () => {
+  // TODO: data sent from backend
+  // const classData = {
+  //     imageUrl: "",
+  //     title: "",
+  //     duration: "",
+  //     classes: 0,
+  //     schedule: "",
+  //     price: 0,
+  //   };
   return (
     <div className="max-w-sm bg-white px-6 pt-6 pb-2 rounded-xl shadow-lg group">
       <div className="relative">
