@@ -117,7 +117,7 @@ const Navbar = () => {
               >
                 <li className="font-medium">
                   <Link
-                    to="dashboard"
+                    to="dashboard/my-class"
                     className="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-indigo-700"
                   >
                     <div className="mr-3">
