@@ -49,7 +49,7 @@ const Navbar = () => {
 
       showCancelButton: true,
       confirmButtonColor: "#4338ca",
-      cancelButtonColor: "#04B404",
+      cancelButtonColor: "#D60093",
       confirmButtonText: "Logout",
     }).then((result) => {
       if (result.isConfirmed) {
@@ -103,7 +103,7 @@ const Navbar = () => {
       <div className="ms-auto md:ms-0 ">
         {user ? (
           <>
-            <div className="dropdown dropdown-end">
+            <div className="dropdown dropdown-end  z-10">
               <div tabIndex={0} className="h-10 w-10">
                 <img
                   className="h-full w-full rounded-full cursor-pointer"
