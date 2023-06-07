@@ -1,15 +1,40 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
+import { FaGraduationCap } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <section className="bg-[#F3F4F6]">
-      <div className="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
+      <div className="flex flex-wrap justify-center text-center">
+        <div className="w-full px-4 mt-4 ">
+          <div className="mb-2 w-full">
+            <Link className="text-center font-bold font-serif" to="/">
+              <span className=" normal-case text-2xl">
+                <FaGraduationCap className="text-4xl mx-auto text-primary"></FaGraduationCap>{" "}
+                BabelLingua
+              </span>
+            </Link>
+            <p className="text-sm  text-gray-500 hover:text-gray-900 mt-2">
+              Unlock the World: Learn Any Language with BabelLingua
+            </p>
+            <p className="flex justify-center gap-3">
+              <small className="text-gray-500 hover:text-gray-900 mt-2">
+                <span className="font-semibold">Call Now:</span> 01800000000
+              </small>
+              <small className="text-gray-500 hover:text-gray-900 mt-2">
+                <span className="font-semibold">Email:</span> example@gmail.com
+              </small>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="max-w-screen-xl px-4 py-4 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
         <nav className="flex flex-wrap justify-center -mx-5 -my-2">
           <div className="px-5 py-2">
             <a
               href="#"
-              className="text-base leading-6 text-gray-500 hover:text-gray-900"
+              className="text-base  text-gray-500 hover:text-gray-900"
             >
               About
             </a>
@@ -17,7 +42,7 @@ const Footer = () => {
           <div className="px-5 py-2">
             <a
               href="#"
-              className="text-base leading-6 text-gray-500 hover:text-gray-900"
+              className="text-base  text-gray-500 hover:text-gray-900"
             >
               Blog
             </a>
@@ -25,7 +50,7 @@ const Footer = () => {
           <div className="px-5 py-2">
             <a
               href="#"
-              className="text-base leading-6 text-gray-500 hover:text-gray-900"
+              className="text-base  text-gray-500 hover:text-gray-900"
             >
               Team
             </a>
@@ -33,7 +58,7 @@ const Footer = () => {
           <div className="px-5 py-2">
             <a
               href="#"
-              className="text-base leading-6 text-gray-500 hover:text-gray-900"
+              className="text-base  text-gray-500 hover:text-gray-900"
             >
               Pricing
             </a>
@@ -41,7 +66,7 @@ const Footer = () => {
           <div className="px-5 py-2">
             <a
               href="#"
-              className="text-base leading-6 text-gray-500 hover:text-gray-900"
+              className="text-base  text-gray-500 hover:text-gray-900"
             >
               Contact
             </a>
@@ -49,7 +74,7 @@ const Footer = () => {
           <div className="px-5 py-2">
             <a
               href="#"
-              className="text-base leading-6 text-gray-500 hover:text-gray-900"
+              className="text-base  text-gray-500 hover:text-gray-900"
             >
               Terms
             </a>
