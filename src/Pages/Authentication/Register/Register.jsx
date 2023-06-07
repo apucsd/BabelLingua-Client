@@ -25,6 +25,7 @@ const Register = () => {
   const onSubmit = async (data) => {
     setLoading(true);
     if (data.password !== data.confirmPassword) {
+      setLoading(false);
       return toast.error("Your confirm password didn't matched");
     }
 
