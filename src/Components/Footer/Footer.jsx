@@ -15,17 +15,20 @@ const Footer = () => {
                 BabelLingua
               </span>
             </Link>
-            <p className="text-sm  text-gray-500 hover:text-gray-900 mt-2">
-              Unlock the World: Learn Any Language with BabelLingua
-            </p>
-            <p className="flex justify-center gap-3">
-              <small className="text-gray-500 hover:text-gray-900 mt-2">
-                <span className="font-semibold">Call Now:</span> 01800000000
-              </small>
-              <small className="text-gray-500 hover:text-gray-900 mt-2">
-                <span className="font-semibold">Email:</span> example@gmail.com
-              </small>
-            </p>
+            <div className="md:block hidden">
+              <p className="text-sm  text-gray-500 hover:text-gray-900 mt-2">
+                Unlock the World: Learn Any Language with BabelLingua
+              </p>
+              <p className="flex justify-center gap-3">
+                <small className="text-gray-500 hover:text-gray-900 mt-2">
+                  <span className="font-semibold">Call Now:</span> 01800000000
+                </small>
+                <small className="text-gray-500 hover:text-gray-900 mt-2">
+                  <span className="font-semibold">Email:</span>{" "}
+                  example@gmail.com
+                </small>
+              </p>
+            </div>
           </div>
         </div>
       </div>
