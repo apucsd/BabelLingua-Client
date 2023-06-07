@@ -33,6 +33,8 @@ const useCustomAxios = () => {
       return Promise.reject(error);
     }
   );
+
+  return axiosSecure;
 };
 
 export default useCustomAxios;

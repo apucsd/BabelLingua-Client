@@ -8,11 +8,13 @@ import SocialLogin from "../SocialLogin/SocialLogin";
 import useAuth from "../../../hooks/useAuth";
 import getImageURL from "../../../resuable/getImageURL";
 import { updateProfile } from "@firebase/auth";
+import useCustomAxios from "../../../hooks/useCustomAxios";
 
 const Register = () => {
   const { createUser } = useAuth();
   const [showPass, setShowPass] = useState(false);
   const [loading, setLoading] = useState(false);
+  const axiosSecure = useCustomAxios();
 
   const {
     register,
@@ -35,9 +37,19 @@ const Register = () => {
           updateProfile(result.user, {
             displayName: data.name,
             photoURL: photoURL,
-          }).then(() => {
-            toast.success("Your account is created successfully");
-            setLoading(false);
+          }).then((res) => {
+            axiosSecure
+              .post("/users", {
+                name: data.name,
+                email: data.email,
+                photoURL: photoURL,
+              })
+              .then((res) => {
+                if (res.data.insertedId) {
+                  toast.success("Your account is created successfully");
+                }
+                setLoading(false);
+              });
           });
         })
         .catch((error) => {
@@ -45,8 +57,6 @@ const Register = () => {
           setLoading(false);
         });
     }
-
-    console.log(data);
   };
 
   return (

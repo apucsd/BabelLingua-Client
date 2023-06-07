@@ -1,19 +1,28 @@
 import { toast } from "react-hot-toast";
 import useAuth from "../../../hooks/useAuth";
 import { useNavigate } from "react-router";
+import useCustomAxios from "../../../hooks/useCustomAxios";
 
 const SocialLogin = () => {
+  const axiosSecure = useCustomAxios();
   const { googleLogin } = useAuth();
   const navigate = useNavigate();
   const handleGoogleLogin = () => {
     googleLogin()
       .then((result) => {
-        toast.success("Your account is created successfully");
+        const user = result.user;
+        axiosSecure
+          .post("/users", {
+            name: user.displayName,
+            email: user.email,
+            photoURL: user.photoURL,
+          })
+          .then((res) => {
+            toast.success("Your account is created successfully");
+            navigate("/");
+          });
       })
-      .catch((error) => {
-        toast.error(error.message);
-        navigate("/");
-      });
+      .catch(() => {});
   };
   return (
     <div className="w-full space-y-4">
