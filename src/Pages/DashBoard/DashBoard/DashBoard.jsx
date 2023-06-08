@@ -82,7 +82,7 @@ const DashBoard = () => {
 
           {/* if user is a student */}
 
-          {userRole === "student" && (
+          {userRole === "admin" || userRole === "instructor" || (
             <>
               <li className="font-medium p-1">
                 <Link
@@ -114,7 +114,7 @@ const DashBoard = () => {
             <>
               <li className="font-medium p-1">
                 <Link
-                  to="my-class"
+                  to="add-class"
                   className="flex items-center transform transition-colors duration-200 border-b-2 border-transparent hover:border-indigo-700"
                 >
                   <div className="mr-3">
