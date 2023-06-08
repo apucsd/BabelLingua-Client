@@ -3,6 +3,7 @@ import SectionTitle from "../../../../Components/SectionTitle/SectionTitle";
 import { useQuery } from "react-query";
 import useCustomAxios from "../../../../hooks/useCustomAxios";
 import { toast } from "react-hot-toast";
+import Swal from "sweetalert2";
 
 const ManageClass = () => {
   const axiosSecure = useCustomAxios();
@@ -35,12 +36,40 @@ const ManageClass = () => {
     }
   };
 
-  const sentFeedBack = async (event) => {
-    const filed = event.target.parentNode.feedback;
-    const feedback = filed.value;
+  const sentFeedBack = async (id) => {
+    Swal.fire({
+      title: "Please send your feedback",
+      input: "text",
+      inputAttributes: {
+        autocapitalize: "off",
+      },
+      showCancelButton: true,
+      confirmButtonText: "Feedback",
+      showLoaderOnConfirm: true,
+      allowOutsideClick: () => !Swal.isLoading(),
+      preConfirm: (feedback) => {
+        if (!feedback || feedback.trim().length === 0) {
+          Swal.showValidationMessage("Please enter your feedback");
+          return false;
+        }
+        return feedback;
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const feedback = result.value;
 
-    filed.value = "";
+        // Send the feedback to the backend
+        axiosSecure
+          .patch(`/classes/feedback/${id}`, { feedback })
+          .then((res) => {
+            if (res.data.modifiedCount > 0) {
+              toast.success("Your feedback has sended to the instructor");
+            }
+          });
+      }
+    });
   };
+
   return (
     <div>
       <SectionTitle heading="manage classes"></SectionTitle>
@@ -124,7 +153,10 @@ const ManageClass = () => {
                       </button>
                     </td>
                     <td>
-                      <button className="btn btn-xs text-primary whitespace-nowrap capitalize">
+                      <button
+                        onClick={() => sentFeedBack(classItem._id)}
+                        className="btn btn-xs text-primary whitespace-nowrap capitalize"
+                      >
                         Feedback
                       </button>
                     </td>
