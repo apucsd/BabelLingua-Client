@@ -1,11 +1,16 @@
 import React from "react";
 import { useQuery } from "react-query";
 import useCustomAxios from "../../../../hooks/useCustomAxios";
-import { FaTrashAlt, FaUserGraduate } from "react-icons/fa";
+import { toast } from "react-hot-toast";
+import { FaUserSecret, FaUserTie } from "react-icons/fa";
 
 const ManageUser = () => {
   const axiosSecure = useCustomAxios();
-  const { isLoading, data: users = [] } = useQuery({
+  const {
+    refetch,
+    isLoading,
+    data: users = [],
+  } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
       const res = await axiosSecure("/users");
@@ -13,6 +18,22 @@ const ManageUser = () => {
     },
   });
 
+  const handleMakeAdmin = (user) => {
+    axiosSecure.patch(`/users/admin/${user._id}`).then((res) => {
+      if (res.data.modifiedCount > 0) {
+        toast.success("Updated to admin ");
+        refetch();
+      }
+    });
+  };
+  const handleMakeInstructor = (user) => {
+    axiosSecure.patch(`/users/instructor/${user._id}`).then((res) => {
+      if (res.data.modifiedCount > 0) {
+        toast.success("Updated to instructor");
+        refetch();
+      }
+    });
+  };
   return (
     <div>
       <h2>All Users:</h2>
@@ -26,7 +47,8 @@ const ManageUser = () => {
                 <th>Profile</th>
                 <th>Name</th>
                 <th>Role</th>
-                <th>Action</th>
+                <th>Make Admin</th>
+                <th>Make Instructor</th>
               </tr>
             </thead>
             <tbody>
@@ -48,29 +70,30 @@ const ManageUser = () => {
                     </td>
                     <td>{user?.name}</td>
                     <td>
-                      <select className="select ">
-                        <option
-                          defaultValue={
-                            user.role === "admin"
-                              ? "Admin"
-                              : user.role === "instructor"
-                              ? "Instructor"
-                              : "Student"
-                          }
-                        >
-                          {user.role === "admin"
-                            ? "Admin"
-                            : user.role === "instructor"
-                            ? "Instructor"
-                            : "Student"}
-                        </option>
-                        <option>Admin</option>
-                        <option>Instructor</option>
-                      </select>
+                      {user.role === "admin" ? (
+                        <span className="text-secondary">Admin</span>
+                      ) : user.role === "instructor" ? (
+                        <span className="text-primary">Instructor</span>
+                      ) : (
+                        <span className="text-green-500">Student</span>
+                      )}
                     </td>
                     <th>
-                      <button className=" p-2 text-center rounded bg-red-500 hover:bg-red-600 text-white focus:outline-none focus:bg-red-600">
-                        <FaTrashAlt />
+                      <button
+                        disabled={user.role === "admin"}
+                        onClick={() => handleMakeAdmin(user)}
+                        className="btn btn-primary"
+                      >
+                        <FaUserSecret></FaUserSecret>
+                      </button>
+                    </th>
+                    <th>
+                      <button
+                        disabled={user.role === "instructor"}
+                        onClick={() => handleMakeInstructor(user)}
+                        className="btn btn-secondary"
+                      >
+                        <FaUserTie></FaUserTie>
                       </button>
                     </th>
                   </tr>

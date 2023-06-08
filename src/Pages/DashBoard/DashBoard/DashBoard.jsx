@@ -14,6 +14,7 @@ import { GiTeacher } from "react-icons/gi";
 const DashBoard = () => {
   const { user } = useAuth();
   const userRole = "admin";
+
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />

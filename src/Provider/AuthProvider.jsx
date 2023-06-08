@@ -10,7 +10,6 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
-import useCustomAxios from "../hooks/useCustomAxios";
 
 const auth = getAuth(app);
 export const AuthContext = createContext();
@@ -48,10 +47,11 @@ const AuthProvider = ({ children }) => {
       if (currentUser) {
         fetch("http://localhost:5000/jwt", {
           method: "POST",
-          body: JSON.stringify(currentUser),
+          body: JSON.stringify({ email: currentUser.email }),
         })
           .then((res) => res.json())
           .then((data) => {
+            console.log(data);
             localStorage.setItem("access-token", data.token);
           });
       } else {
