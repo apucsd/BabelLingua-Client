@@ -3,6 +3,7 @@ import { useQuery } from "react-query";
 import useCustomAxios from "../../../../hooks/useCustomAxios";
 import { toast } from "react-hot-toast";
 import { FaUserSecret, FaUserTie } from "react-icons/fa";
+import SectionTitle from "../../../../Components/SectionTitle/SectionTitle";
 
 const ManageUser = () => {
   const axiosSecure = useCustomAxios();
@@ -36,7 +37,10 @@ const ManageUser = () => {
   };
   return (
     <div>
-      <h2>All Users:</h2>
+      <SectionTitle
+        heading="manage all users"
+        subheading="List of all users"
+      ></SectionTitle>
       <div>
         <div className="overflow-x-auto">
           <table className="table">
