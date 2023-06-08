@@ -1,12 +1,12 @@
 import React from "react";
 import SectionTitle from "../../../../Components/SectionTitle/SectionTitle";
 
-const MYClass = () => {
+const EnrolledClass = () => {
   return (
     <div>
-      <SectionTitle heading={"My classes"}></SectionTitle>
+      <SectionTitle heading={"My enrolled classes"}></SectionTitle>
     </div>
   );
 };
 
-export default MYClass;
+export default EnrolledClass;

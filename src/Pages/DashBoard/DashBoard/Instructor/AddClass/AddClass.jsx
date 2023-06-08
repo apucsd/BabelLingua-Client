@@ -8,7 +8,7 @@ import { toast } from "react-hot-toast";
 
 const AddClass = () => {
   const axiosSecure = useCustomAxios();
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const { user } = useAuth();
   const onSubmit = async (data) => {
     const photoURL = await getImageURL(data.classImage[0]);
@@ -19,6 +19,7 @@ const AddClass = () => {
 
       if (res.data.insertedId) {
         toast.success(`Thanks your class added successfully`);
+        reset();
       }
     }
   };

@@ -32,7 +32,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="/contactUs"
+          to="/classes"
           className={({ isActive, isPending }) =>
             isPending ? "pending" : isActive ? "font-bold" : ""
           }
