@@ -8,6 +8,7 @@ import MYClass from "../Pages/DashBoard/Student/MyClass/MYClass";
 import DashBoard from "../Pages/DashBoard/DashBoard/DashBoard";
 import PrivateRoute from "./PrivateRoute";
 import ManageUser from "../Pages/DashBoard/Admin/ManageUser/ManageUser";
+import AdminRoute from "./AdminRoute";
 
 const router = createBrowserRouter([
   {
@@ -43,7 +44,12 @@ const router = createBrowserRouter([
       },
       {
         path: "manage-users",
-        element: <ManageUser></ManageUser>,
+        element: (
+          <AdminRoute>
+            {" "}
+            <ManageUser></ManageUser>
+          </AdminRoute>
+        ),
       },
     ],
   },

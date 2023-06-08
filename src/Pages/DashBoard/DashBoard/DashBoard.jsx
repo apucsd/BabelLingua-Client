@@ -10,10 +10,12 @@ import {
   FaUsers,
 } from "react-icons/fa";
 import { GiTeacher } from "react-icons/gi";
+import useUserRole from "../../../hooks/useUserRole";
 
 const DashBoard = () => {
   const { user } = useAuth();
-  const userRole = "admin";
+
+  const { userRole } = useUserRole();
 
   return (
     <div className="drawer lg:drawer-open">
