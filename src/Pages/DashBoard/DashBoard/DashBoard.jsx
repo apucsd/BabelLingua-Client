@@ -125,7 +125,7 @@ const DashBoard = () => {
               </li>
               <li className="font-medium p-1">
                 <Link
-                  to="enrolled-classes"
+                  to="instructor-my-class"
                   className="flex items-center transform transition-colors duration-200 border-b-2 border-transparent hover:border-indigo-700"
                 >
                   <div className="mr-3">
