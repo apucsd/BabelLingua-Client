@@ -46,6 +46,7 @@ const MySelectedClass = () => {
               <th>Instructor Name</th>
 
               <th>Price</th>
+              <th>Pay</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -67,7 +68,15 @@ const MySelectedClass = () => {
                   <td>{classItem?.instructorName}</td>
 
                   <td>
-                    <span className="text-red-500">{classItem?.price}tk</span>
+                    <span className="text-red-600 font-bold">
+                      {classItem.price}
+                      <span className="text-xl">৳</span>
+                    </span>
+                  </td>
+                  <td>
+                    <button className="py-2 whitespace-nowrap text-xs px-3 font-semibold rounded-lg shadow-md text-white bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600">
+                      Pay Now
+                    </button>
                   </td>
 
                   <td>
