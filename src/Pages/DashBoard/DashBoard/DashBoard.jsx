@@ -91,13 +91,13 @@ const DashBoard = () => {
                 <>
                   <li className="font-medium p-1">
                     <Link
-                      to="my-class"
+                      to="my-selected-class"
                       className="flex items-center transform transition-colors duration-200 border-b-2 border-transparent hover:border-indigo-700"
                     >
                       <div className="mr-3">
                         <FaBook></FaBook>
                       </div>
-                      My Classes
+                      My Selected Classes
                     </Link>
                   </li>
                   <li className="font-medium p-1">

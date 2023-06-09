@@ -2,12 +2,18 @@ import React, { useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import { FaChair, FaDollarSign } from "react-icons/fa";
 import useUserRole from "../../../hooks/useUserRole";
+import useCustomAxios from "../../../hooks/useCustomAxios";
+import useAuth from "../../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
-const ClassCard = ({ singleClass }) => {
+const ClassCard = ({ singleClass, refetch }) => {
+  const { user } = useAuth();
+  const axiosSecure = useCustomAxios();
   const [disableBtn, setDisabledBtn] = useState(false);
   const { userRole } = useUserRole();
 
-  const { className, classImage, availableSeats, price, instructorName } =
+  const { className, classImage, availableSeats, price, instructorName, _id } =
     singleClass;
 
   useEffect(() => {
@@ -19,11 +25,33 @@ const ClassCard = ({ singleClass }) => {
       setDisabledBtn(true);
     }
   }, [userRole, availableSeats]);
+
+  const handleBookClass = async () => {
+    const booking = {
+      className,
+      classImage,
+      availableSeats,
+      price,
+      instructorName,
+      classId: _id,
+      email: user?.email,
+    };
+    if (!user) {
+      return toast.error("Please login first for booking a class");
+    }
+    const res = await axiosSecure.post(`/bookings`, {
+      booking,
+    });
+    if (res.data.insertedId) {
+      toast.success("Class added! Check your my classes");
+      setDisabledBtn(true);
+    }
+  };
   return (
     <div
       className={`${
         availableSeats === 0 ? "bg-red-200" : "bg-white"
-      } max-w-sm border m-1 px-6 pt-6 pb-2 rounded-xl group`}
+      } max-w-sm  m-1 px-6 pt-6 pb-2 rounded-xl group`}
     >
       <div className="relative">
         <Fade>
@@ -58,9 +86,7 @@ const ClassCard = ({ singleClass }) => {
           className={`sm:w-full my-2 border rounded py-2 px-8 text-center bg-indigo-600 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-700 focus:ring-opacity-50 ${
             disableBtn ? "opacity-50 cursor-not-allowed" : "cursor-pointer"
           }`}
-          onClick={() => {
-            // Perform any action when the button is clicked
-          }}
+          onClick={() => handleBookClass(singleClass)}
         >
           Buy Lesson
         </button>

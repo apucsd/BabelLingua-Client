@@ -17,7 +17,6 @@ const Classes = () => {
       return res.data;
     },
   });
-  console.log(classes);
   return (
     <div>
       <SectionTitle heading={"All Classes"}></SectionTitle>
@@ -25,6 +24,7 @@ const Classes = () => {
         <div className="grid md:grid-cols-3">
           {classes.map((singleClass) => (
             <ClassCard
+              refetch={refetch}
               singleClass={singleClass}
               key={singleClass._id}
             ></ClassCard>
