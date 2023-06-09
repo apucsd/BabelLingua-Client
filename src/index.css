@@ -15,3 +15,9 @@
   border-bottom: 2px solid #4338ca !important;
   border-radius: 0 !important;
 }
+.useBg {
+  background-image: url("./assets//images//authbg.png");
+  background-color: rgba(0, 0, 0, 0.397);
+  background-blend-mode: multiply;
+  height: 100%;
+}

@@ -63,7 +63,7 @@ const Navbar = () => {
   };
   return (
     <div
-      className={`navbar bg-base-100 border-b-4 border-secondary  z-10 max-w-screen-lg navbar-img`}
+      className={`navbar bg-base-100 border-b-4 border-secondary  z-10 shadow-xl`}
     >
       <div className="navbar-start">
         <div className="dropdown">
