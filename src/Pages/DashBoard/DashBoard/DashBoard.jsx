@@ -5,6 +5,7 @@ import {
   FaBook,
   FaGraduationCap,
   FaHome,
+  FaMoneyBillAlt,
   FaPen,
   FaPlus,
   FaUsers,
@@ -109,6 +110,17 @@ const DashBoard = () => {
                         <FaPen></FaPen>
                       </div>
                       Enrolled Classes
+                    </Link>
+                  </li>
+                  <li className="font-medium p-1">
+                    <Link
+                      to="payment-history"
+                      className="flex items-center transform transition-colors duration-200 border-b-2 border-transparent hover:border-indigo-700"
+                    >
+                      <div className="mr-3">
+                        <FaMoneyBillAlt></FaMoneyBillAlt>
+                      </div>
+                      Payment History
                     </Link>
                   </li>
                 </>

@@ -71,7 +71,7 @@ const ManageClass = () => {
   };
 
   return (
-    <div>
+    <div className="p-4">
       <SectionTitle heading="manage classes"></SectionTitle>
 
       <div>

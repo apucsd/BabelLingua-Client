@@ -5,6 +5,7 @@ import { useQuery } from "react-query";
 import useAuth from "../../../../hooks/useAuth";
 import { FaTrashAlt } from "react-icons/fa";
 import { toast } from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const MySelectedClass = () => {
   const { user, loading } = useAuth();
@@ -74,9 +75,11 @@ const MySelectedClass = () => {
                     </span>
                   </td>
                   <td>
-                    <button className="py-2 whitespace-nowrap text-xs px-3 font-semibold rounded-lg shadow-md text-white bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600">
-                      Pay Now
-                    </button>
+                    <Link to="/dashboard/payment">
+                      <button className="py-2 whitespace-nowrap text-xs px-3 font-semibold rounded-lg shadow-md text-white bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600">
+                        Pay Now
+                      </button>
+                    </Link>
                   </td>
 
                   <td>
