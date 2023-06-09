@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { toast } from "react-hot-toast";
 import { FaGraduationCap } from "react-icons/fa";
@@ -7,6 +7,7 @@ import useAuth from "../../hooks/useAuth";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
+  const navigate = useNavigate();
 
   const links = (
     <>
@@ -55,6 +56,7 @@ const Navbar = () => {
       if (result.isConfirmed) {
         logOut().then(() => {
           toast.success("Logout is successful");
+          navigate("/login");
         });
       }
     });
