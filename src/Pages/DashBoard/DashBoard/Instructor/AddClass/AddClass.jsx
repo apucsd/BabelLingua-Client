@@ -11,6 +11,9 @@ const AddClass = () => {
   const { register, handleSubmit, reset } = useForm();
   const { user } = useAuth();
   const onSubmit = async (data) => {
+    data.price = parseFloat(data.price);
+    data.availableSeats = parseFloat(data.availableSeats);
+
     const photoURL = await getImageURL(data.classImage[0]);
     data.classImage = photoURL;
 

@@ -20,7 +20,11 @@ const ClassCard = ({ singleClass }) => {
     }
   }, [userRole, availableSeats]);
   return (
-    <div className="max-w-sm bg-white px-6 pt-6 pb-2 rounded-xl  group">
+    <div
+      className={`${
+        availableSeats === 0 ? "bg-red-200" : "bg-white"
+      } max-w-sm border m-1 px-6 pt-6 pb-2 rounded-xl group`}
+    >
       <div className="relative">
         <Fade>
           <img
