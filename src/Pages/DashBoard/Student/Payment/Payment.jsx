@@ -5,10 +5,11 @@ import CheckoutForm from "./CheckoutForm";
 import { useLocation } from "react-router-dom";
 
 const Payment = () => {
-  const [clientSecret, setClientSecret] = useState("");
   const location = useLocation();
+  console.log(location);
 
-  const amount = location?.state;
+  const amount = location?.state.amount;
+  const classItem = location?.state?.classItem;
   const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PK);
   const options = {
     mode: "payment",
@@ -24,7 +25,7 @@ const Payment = () => {
   return (
     <div className="p-10">
       <Elements stripe={stripePromise} options={options}>
-        <CheckoutForm amount={amount} />
+        <CheckoutForm classItem={classItem} amount={amount} />
       </Elements>
     </div>
   );

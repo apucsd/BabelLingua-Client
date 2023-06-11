@@ -75,7 +75,10 @@ const MySelectedClass = () => {
                     </span>
                   </td>
                   <td>
-                    <Link state={classItem.price} to="/dashboard/payment">
+                    <Link
+                      state={{ amount: classItem.price, classItem: classItem }}
+                      to="/dashboard/payment"
+                    >
                       <button className="py-2 whitespace-nowrap text-xs px-3 font-semibold rounded-lg shadow-md text-white bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600">
                         Pay Now
                       </button>
