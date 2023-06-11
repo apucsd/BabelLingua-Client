@@ -20,7 +20,7 @@ const PopularInstructor = () => {
         heading="Popular instructors"
         subheading="Top 6 Popular Instructors"
       ></SectionTitle>
-      <div className="grid md:grid-cols-4 gap-4">
+      <div className="grid md:grid-cols-4 gap-4 my-8">
         {instructors.map((instructor) => (
           <InstructorCard
             key={instructor._id}

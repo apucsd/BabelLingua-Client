@@ -26,7 +26,7 @@ const DashBoard = () => {
           <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
           <div className="drawer-content overflow-x-auto">
             {/* Page content here */}
-            <div className="mx-4">
+            <div className="m-8">
               <label
                 htmlFor="my-drawer-2"
                 className="text-3xl drawer-button lg:hidden"

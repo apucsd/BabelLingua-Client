@@ -6,7 +6,7 @@ import { FaEye, FaEyeSlash, FaSpinner } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import useAuth from "../../../hooks/useAuth";
-import loginImg from "../../../assets/images/login.png";
+
 import Lottie from "lottie-react";
 import welcome from "../../../assets/anim/welcome.json";
 

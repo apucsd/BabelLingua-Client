@@ -21,7 +21,7 @@ const Classes = () => {
     <div>
       <SectionTitle heading={"All Classes"}></SectionTitle>
       <div>
-        <div className="grid md:grid-cols-3">
+        <div className="grid md:grid-cols-3 justify-center">
           {classes.map((singleClass) => (
             <ClassCard
               refetch={refetch}

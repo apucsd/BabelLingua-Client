@@ -24,7 +24,7 @@ const PopularClass = () => {
         heading="Popular Classes"
         subheading="Top 6 Popular Classes"
       ></SectionTitle>
-      <div className="grid md:grid-cols-3">
+      <div className="grid md:grid-cols-3 justify-center">
         {classes.map((singleClass) => (
           <ClassCard
             refetch={refetch}

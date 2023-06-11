@@ -51,7 +51,7 @@ const ClassCard = ({ singleClass, refetch }) => {
     <div
       className={`${
         availableSeats === 0 ? "bg-red-200" : "bg-base-100"
-      } max-w-sm  m-1 px-6 pt-6 pb-2 rounded-xl group`}
+      }   m-1 px-6 pt-6 pb-2 rounded-xl group`}
     >
       <div className="relative">
         <Fade>
