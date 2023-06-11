@@ -2,6 +2,7 @@ import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import {
+  FaBars,
   FaBook,
   FaGraduationCap,
   FaHome,
@@ -25,12 +26,14 @@ const DashBoard = () => {
           <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
           <div className="drawer-content overflow-x-auto">
             {/* Page content here */}
-            <label
-              htmlFor="my-drawer-2"
-              className="btn btn-primary drawer-button lg:hidden"
-            >
-              Open drawer
-            </label>
+            <div className="mx-4">
+              <label
+                htmlFor="my-drawer-2"
+                className="text-3xl drawer-button lg:hidden"
+              >
+                <FaBars></FaBars>
+              </label>
+            </div>
 
             <Outlet></Outlet>
           </div>
