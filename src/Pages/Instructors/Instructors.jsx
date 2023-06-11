@@ -17,15 +17,19 @@ const Instructors = () => {
 
   return (
     <div>
-      <SectionTitle heading={"Our Instructors"}></SectionTitle>
-      <div className="grid md:grid-cols-4 gap-4">
-        {instructors.map((instructor) => (
-          <InstructorCard
-            key={instructor._id}
-            instructor={instructor}
-          ></InstructorCard>
-        ))}
-      </div>
+      {instructors.length > 0 && (
+        <div>
+          <SectionTitle heading={"Our Instructors"}></SectionTitle>
+          <div className="grid md:grid-cols-4 gap-4">
+            {instructors.map((instructor) => (
+              <InstructorCard
+                key={instructor._id}
+                instructor={instructor}
+              ></InstructorCard>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

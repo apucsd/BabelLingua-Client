@@ -45,6 +45,7 @@ const Register = () => {
                 name: data.name,
                 email: data.email,
                 photoURL: photoURL,
+                role: "student",
               })
               .then((res) => {
                 if (res.data.insertedId) {

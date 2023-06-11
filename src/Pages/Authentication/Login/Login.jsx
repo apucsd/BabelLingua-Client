@@ -11,6 +11,7 @@ import Lottie from "lottie-react";
 import welcome from "../../../assets/anim/welcome.json";
 
 const Login = () => {
+  console.log("hitttng login");
   const { loginUser, resetPassword } = useAuth();
   const [message, setMessage] = useState("");
   const [errormessage, setErrorMessage] = useState("");

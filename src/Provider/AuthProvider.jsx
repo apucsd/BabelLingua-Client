@@ -45,8 +45,11 @@ const AuthProvider = ({ children }) => {
       setUser(currentUser);
       setLoading(false);
       if (currentUser) {
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://my-babel-server.vercel.app/jwt", {
           method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
           body: JSON.stringify({ email: currentUser.email }),
         })
           .then((res) => res.json())
@@ -62,7 +65,6 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
   const authInfo = {
-    text: "hll",
     user,
     loading,
     createUser,
