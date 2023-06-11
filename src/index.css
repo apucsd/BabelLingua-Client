@@ -6,12 +6,12 @@
 }
 
 .navbar a {
-  background: white !important;
+  background: transparent !important;
   border-bottom: 2px solid transparent !important;
   border-radius: 0 !important;
 }
 .navbar a:hover {
-  background: white !important;
+  background: transparent !important;
   border-bottom: 2px solid #4338ca !important;
   border-radius: 0 !important;
 }

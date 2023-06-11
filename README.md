@@ -18,7 +18,7 @@ This website is a platform for learning foreign languages. It provides interacti
 
 **daiszyui:** Responsive and stylish UI design.
 
-**firebase:** Seamless integration for real-time data storage and authentication.
+**firebase:** Seamless integration for authentication.
 
 **react-query:** Efficient data fetching and caching.
 

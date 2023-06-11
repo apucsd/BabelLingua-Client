@@ -6,7 +6,7 @@ const InstructorCard = ({ instructor }) => {
   return (
     <div
       key={instructor._id}
-      className="border mt-4 mx-4 md:mx-0 bg-white rounded-lg text-gray-900"
+      className="border mt-4 mx-4 md:mx-0 bg-base-100 rounded-lg text-base-900"
     >
       <div className="rounded-t-lg h-32 overflow-hidden">
         <Fade duration={1000}>
@@ -23,7 +23,7 @@ const InstructorCard = ({ instructor }) => {
       </div>
       <div className="text-center mt-2">
         <h2 className="font-semibold">{instructor.name}</h2>
-        <p className="text-gray-500 text-xs">{instructor.email}</p>
+        <p className="text-base-600 text-xs">{instructor.email}</p>
       </div>
 
       <div className="p-4 border-t  mt-2">

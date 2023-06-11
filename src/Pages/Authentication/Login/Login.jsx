@@ -11,7 +11,6 @@ import Lottie from "lottie-react";
 import welcome from "../../../assets/anim/welcome.json";
 
 const Login = () => {
-  console.log("hitttng login");
   const { loginUser, resetPassword } = useAuth();
   const [message, setMessage] = useState("");
   const [errormessage, setErrorMessage] = useState("");
@@ -61,13 +60,13 @@ const Login = () => {
       });
   };
   return (
-    <div className="  grid md:grid-cols-2 items-center">
+    <div className=" grid md:grid-cols-2 items-center">
       <div>
         <Lottie animationData={welcome} />;
       </div>
-      <div className="bg-white py-6 sm:py-8 lg:py-12">
+      <div className="bg-base-100 py-6 sm:py-8 lg:py-12">
         <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
-          <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl">
+          <h2 className="mb-4 text-center text-2xl font-bold text-base-800 md:mb-8 lg:text-3xl">
             Welcome Back !
           </h2>
 
@@ -81,7 +80,7 @@ const Login = () => {
                   type="email"
                   placeholder="Email"
                   {...register("email", { required: true })}
-                  className="w-full rounded border-b  px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100"
+                  className="w-full rounded border-b  px-3 py-2 text-base-800 outline-none ring-indigo-300 transition duration-100"
                 />
               </div>
 
@@ -90,7 +89,7 @@ const Login = () => {
                   placeholder="Password"
                   type={showPass ? "text" : "password"}
                   {...register("password", { required: true })}
-                  className="w-full rounded border-b  px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100"
+                  className="w-full rounded border-b  px-3 py-2 text-base-800 outline-none ring-indigo-300 transition duration-100"
                 />
                 <span
                   onClick={() => setShowPass(!showPass)}
@@ -99,7 +98,7 @@ const Login = () => {
                   {showPass ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
                 </span>
               </div>
-              <p className="text-center text-sm text-gray-500 mt-2">
+              <p className="text-center text-sm text-base-500 mt-2">
                 Forget password ?
                 <span
                   className="link"
@@ -110,7 +109,7 @@ const Login = () => {
               </p>
 
               <div className="flex items-center justify-center p-4">
-                <p className="text-center text-sm text-gray-500">
+                <p className="text-center text-sm text-base-500">
                   Don't have an account?{" "}
                   <Link to="/register" className="link">
                     Register
@@ -144,7 +143,7 @@ const Login = () => {
               type="email"
               placeholder="Email"
               ref={emailRef}
-              className="w-full rounded border-b  px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100"
+              className="w-full rounded border-b  px-3 py-2 text-base-800 outline-none ring-indigo-300 transition duration-100"
             />
             <div className="w-1/2 mx-auto mt-8">
               <span onClick={handleResetPassword}>

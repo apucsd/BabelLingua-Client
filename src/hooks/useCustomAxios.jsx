@@ -6,8 +6,6 @@ const axiosSecure = axios.create({
   baseURL: "https://my-babel-server.vercel.app",
 });
 const useCustomAxios = () => {
-  const { logOut } = useAuth();
-  const navigate = useNavigate();
   // Request interceptor
   useEffect(() => {
     axiosSecure.interceptors.request.use(

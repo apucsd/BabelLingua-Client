@@ -29,7 +29,7 @@ const SocialLogin = () => {
     <div className="w-full space-y-4">
       <div className="relative flex items-center justify-center mx-4">
         <span className="absolute inset-x-0 h-px bg-gray-300"></span>
-        <span className="relative bg-white px-4 text-sm text-gray-400">
+        <span className="relative bg-base-100 px-4 text-sm text-gray-400">
           Log in with social
         </span>
       </div>

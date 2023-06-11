@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <section className="bg-slate-100]">
+    <section className="bg-base-100]">
       <div className="flex flex-wrap justify-center text-center">
         <div className="w-full px-4 mt-4 ">
           <div className="mb-2 w-full">
@@ -16,14 +16,14 @@ const Footer = () => {
               </span>
             </Link>
             <div className="md:block hidden">
-              <p className="text-sm  text-gray-500 hover:text-gray-900 mt-2">
+              <p className="text-sm  text-base-500 hover:text-base-900 mt-2">
                 Unlock the World: Learn Any Language with BabelLingua
               </p>
               <p className="flex justify-center gap-3">
-                <small className="text-gray-500 hover:text-gray-900 mt-2">
+                <small className="text-base-500 hover:text-base-900 mt-2">
                   <span className="font-semibold">Call Now:</span> 01800000000
                 </small>
-                <small className="text-gray-500 hover:text-gray-900 mt-2">
+                <small className="text-base-500 hover:text-base-900 mt-2">
                   <span className="font-semibold">Email:</span>{" "}
                   example@gmail.com
                 </small>
@@ -37,7 +37,7 @@ const Footer = () => {
           <div className="px-5 py-2">
             <a
               href="#"
-              className="text-base  text-gray-500 hover:text-gray-900"
+              className="text-base  text-base-500 hover:text-base-900"
             >
               About
             </a>
@@ -45,7 +45,7 @@ const Footer = () => {
           <div className="px-5 py-2">
             <a
               href="#"
-              className="text-base  text-gray-500 hover:text-gray-900"
+              className="text-base  text-base-500 hover:text-base-900"
             >
               Blog
             </a>
@@ -53,7 +53,7 @@ const Footer = () => {
           <div className="px-5 py-2">
             <a
               href="#"
-              className="text-base  text-gray-500 hover:text-gray-900"
+              className="text-base  text-base-500 hover:text-base-900"
             >
               Team
             </a>
@@ -61,7 +61,7 @@ const Footer = () => {
           <div className="px-5 py-2">
             <a
               href="#"
-              className="text-base  text-gray-500 hover:text-gray-900"
+              className="text-base  text-base-500 hover:text-base-900"
             >
               Pricing
             </a>
@@ -69,7 +69,7 @@ const Footer = () => {
           <div className="px-5 py-2">
             <a
               href="#"
-              className="text-base  text-gray-500 hover:text-gray-900"
+              className="text-base  text-base-500 hover:text-base-900"
             >
               Contact
             </a>
@@ -77,7 +77,7 @@ const Footer = () => {
           <div className="px-5 py-2">
             <a
               href="#"
-              className="text-base  text-gray-500 hover:text-gray-900"
+              className="text-base  text-base-500 hover:text-base-900"
             >
               Terms
             </a>
@@ -86,7 +86,7 @@ const Footer = () => {
         <div className="flex justify-center mt-8 space-x-6">
           <a
             href="https://facebook.com/"
-            className="text-gray-400 hover:text-gray-500"
+            className="text-base-400 hover:text-base-500"
           >
             <span className="sr-only">Facebook</span>
             <svg
@@ -104,7 +104,7 @@ const Footer = () => {
           </a>
           <a
             href="https://instagram.com/"
-            className="text-gray-400 hover:text-gray-500"
+            className="text-base-400 hover:text-base-500"
           >
             <span className="sr-only">Instagram</span>
             <svg
@@ -122,7 +122,7 @@ const Footer = () => {
           </a>
           <a
             href="https://twitter.com/"
-            className="text-gray-400 hover:text-gray-500"
+            className="text-base-400 hover:text-base-500"
           >
             <span className="sr-only">Twitter</span>
             <svg
@@ -136,7 +136,7 @@ const Footer = () => {
           </a>
           <a
             href="https://github.com/"
-            className="text-gray-400 hover:text-gray-500"
+            className="text-base-400 hover:text-base-500"
           >
             <span className="sr-only">GitHub</span>
             <svg
@@ -153,7 +153,7 @@ const Footer = () => {
             </svg>
           </a>
         </div>
-        <p className="mt-8 text-base leading-6 text-center text-gray-400">
+        <p className="mt-8 text-base leading-6 text-center text-base-400">
           {`  © ${new Date().getFullYear()} BabelLingua, Inc. All rights reserved.`}
         </p>
       </div>

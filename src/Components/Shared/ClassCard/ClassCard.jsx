@@ -50,7 +50,7 @@ const ClassCard = ({ singleClass, refetch }) => {
   return (
     <div
       className={`${
-        availableSeats === 0 ? "bg-red-200" : "bg-white"
+        availableSeats === 0 ? "bg-red-200" : "bg-base-100"
       } max-w-sm  m-1 px-6 pt-6 pb-2 rounded-xl group`}
     >
       <div className="relative">
@@ -61,13 +61,11 @@ const ClassCard = ({ singleClass, refetch }) => {
             alt="class"
           />
         </Fade>
-        <p className="absolute top-0 bg-yellow-300 text-gray-800 font-semibold py-1 px-3 rounded-br-lg rounded-tl-lg">
+        <p className="absolute top-0 bg-yellow-300  font-semibold py-1 px-3 rounded-br-lg rounded-tl-lg">
           <small>{instructorName}</small>
         </p>
       </div>
-      <h1 className="mt-4 text-gray-800 text-2xl font-bold cursor-pointer">
-        {className}
-      </h1>
+      <h1 className="mt-4  text-2xl font-bold cursor-pointer">{className}</h1>
 
       <div className="my-4">
         <div className="flex space-x-1 items-center gap-3">
@@ -79,7 +77,7 @@ const ClassCard = ({ singleClass, refetch }) => {
 
         <div className="flex space-x-1 items-center gap-5">
           <span className=" text-4xl text-indigo-600 mb-4">&#2547;</span>
-          <p className="text-gray-700 mb-2 text-3xl font-bold ">{price}</p>
+          <p className=" mb-2 text-3xl font-bold ">{price}</p>
         </div>
         <button
           disabled={disableBtn}

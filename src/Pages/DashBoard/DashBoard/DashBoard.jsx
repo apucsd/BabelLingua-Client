@@ -34,9 +34,9 @@ const DashBoard = () => {
 
             <Outlet></Outlet>
           </div>
-          <div className="drawer-side bg-slate-100">
+          <div className="drawer-side ">
             <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-            <ul className="space-y-2 menu p-4 w-80 h-full bg-slate-300 shadow-lg text-base-content">
+            <ul className="space-y-2 menu p-4 w-80 h-full bg-base-200 shadow-lg text-base-content">
               <img
                 className="w-24 h-24 mx-auto border-2 border-primary rounded-full"
                 src={user.photoURL}

@@ -64,9 +64,9 @@ const Register = () => {
   };
 
   return (
-    <div className="bg-white py-6 sm:py-8 lg:py-12">
+    <div className="bg-base-100 py-6 sm:py-8 lg:py-12">
       <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
-        <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl">
+        <h2 className="mb-4 text-center text-2xl font-bold text-base-800 md:mb-8 lg:text-3xl">
           Create an account
         </h2>
 
@@ -80,7 +80,7 @@ const Register = () => {
                 type="text"
                 placeholder="Your Full Name"
                 {...register("name", { required: true })}
-                className="w-full rounded border-b  px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100"
+                className="w-full rounded border-b  px-3 py-2 text-base-800 outline-none ring-indigo-300 transition duration-100"
               />
             </div>
             <div>
@@ -88,7 +88,7 @@ const Register = () => {
                 type="email"
                 placeholder="Email"
                 {...register("email", { required: true })}
-                className="w-full rounded border-b  px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100"
+                className="w-full rounded border-b  px-3 py-2 text-base-800 outline-none ring-indigo-300 transition duration-100"
               />
             </div>
 
@@ -101,7 +101,7 @@ const Register = () => {
                   pattern:
                     /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*[0-9a-zA-Z]).{6,}$/,
                 })}
-                className="w-full rounded border-b  px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100"
+                className="w-full rounded border-b  px-3 py-2 text-base-800 outline-none ring-indigo-300 transition duration-100"
               />
               <span
                 onClick={() => setShowPass(!showPass)}
@@ -122,7 +122,7 @@ const Register = () => {
                 placeholder="Confirm Password"
                 type={showPass ? "text" : "password"}
                 {...register("confirmPassword", { required: true })}
-                className="w-full rounded border-b  px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100"
+                className="w-full rounded border-b  px-3 py-2 text-base-800 outline-none ring-indigo-300 transition duration-100"
               />
               <span
                 onClick={() => setShowPass(!showPass)}
@@ -135,7 +135,7 @@ const Register = () => {
               <input
                 type="file"
                 {...register("image", { required: true })}
-                className="w-full rounded border-b  px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100"
+                className="w-full rounded border-b  px-3 py-2 text-base-800 outline-none ring-indigo-300 transition duration-100"
               />
               {errors.image && errors.image.type === "required" && (
                 <p className="text-red-500 mt-3">
@@ -145,7 +145,7 @@ const Register = () => {
             </div>
 
             <div className="flex items-center justify-center p-4">
-              <p className="text-center text-sm text-gray-500">
+              <p className="text-center text-sm text-base-500">
                 Already have an account?{" "}
                 <Link to="/login" className="link">
                   Login

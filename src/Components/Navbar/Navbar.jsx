@@ -1,11 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { toast } from "react-hot-toast";
-import { FaGraduationCap } from "react-icons/fa";
+import { FaGraduationCap, FaMoon, FaSun } from "react-icons/fa";
 import useAuth from "../../hooks/useAuth";
 
 const Navbar = () => {
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
+  );
+
+  // update state on toggle
+  const handleToggle = (e) => {
+    if (e.target.checked) {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  };
+
+  // set theme state in localstorage on mount & also update localstorage on state change
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    const localTheme = localStorage.getItem("theme");
+    // add custom data-theme attribute to html tag required to update theme using DaisyUI
+    document.querySelector("html").setAttribute("data-theme", localTheme);
+  }, [theme]);
+
   const { user, logOut } = useAuth();
   const navigate = useNavigate();
 
@@ -65,9 +86,6 @@ const Navbar = () => {
     <div
       className={`navbar bg-base-100 border-b-4 border-secondary  z-10 shadow-xl`}
     >
-      <dir>
-        <img src="" alt="" />
-      </dir>
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -88,7 +106,7 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 z-10"
           >
             {/* set ul link */}
             {links}
@@ -103,11 +121,20 @@ const Navbar = () => {
       </div>
       <div className="navbar-end hidden ms-auto lg:flex justify-end">
         {/* menu item center div lg */}
-        <ul className="menu menu-horizontal  px-1">{links}</ul>
+        <ul className="menu menu-horizontal  px-1 z-10">{links}</ul>
       </div>
       <div className="ms-auto md:ms-0 ">
         {user ? (
           <>
+            <label className="swap swap-rotate w-12 h-12 mx-6">
+              <input
+                onChange={handleToggle}
+                type="checkbox"
+                className="toggle toggle-sm md:toggle-md"
+                checked={theme === "light" ? false : true}
+              />
+            </label>
+
             <div className="dropdown dropdown-end  z-10">
               <div tabIndex={0} className="h-10 w-10">
                 <img
@@ -175,9 +202,22 @@ const Navbar = () => {
             </div>
           </>
         ) : (
-          <Link to="/login">
-            <button className="primary-btn">Login</button>
-          </Link>
+          <>
+            {theme && (
+              <label className="swap swap-rotate w-12 h-12 mx-4">
+                <input
+                  onChange={handleToggle}
+                  type="checkbox"
+                  className="toggle toggle-sm"
+                  checked={theme === "light" ? false : true}
+                />
+              </label>
+            )}
+
+            <Link to="/login">
+              <button className="primary-btn ">Login</button>
+            </Link>
+          </>
         )}
       </div>
     </div>
