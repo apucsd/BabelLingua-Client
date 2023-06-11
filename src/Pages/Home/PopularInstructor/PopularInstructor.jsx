@@ -11,7 +11,7 @@ const PopularInstructor = () => {
     queryKey: ["instructors"],
     queryFn: async () => {
       const res = await axiosSecure("/users/instructors");
-      return res.data;
+      return res.data.slice(0, 6);
     },
   });
   return (

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { FaEye, FaEyeSlash, FaSpinner } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import useAuth from "../../../hooks/useAuth";
 import getImageURL from "../../../resuable/getImageURL";
@@ -15,6 +15,7 @@ const Register = () => {
   const [showPass, setShowPass] = useState(false);
   const [loading, setLoading] = useState(false);
   const axiosSecure = useCustomAxios();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -48,6 +49,7 @@ const Register = () => {
               .then((res) => {
                 if (res.data.insertedId) {
                   toast.success("Your account is created successfully");
+                  navigate("/");
                 }
                 setLoading(false);
               });
