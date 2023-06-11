@@ -24,20 +24,17 @@ const useCustomAxios = () => {
 
   // Response interceptor
   axiosSecure.interceptors.response.use(
-    async (response) => {
-      // Check if response status is 401 or 403
-      if (response.status === 401 || response.status === 403) {
+    (response) => {
+      return response;
+    },
+    async (error) => {
+      if (error?.response?.status === 401 || error?.response?.status === 403) {
         await logOut();
         navigate("/login");
       }
-      return response;
-    },
-    (error) => {
-      // Handle response errors
       return Promise.reject(error);
     }
   );
-
   return axiosSecure;
 };
 

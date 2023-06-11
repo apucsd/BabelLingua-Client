@@ -18,7 +18,6 @@ const PopularClass = () => {
       return res.data.slice(0, 6);
     },
   });
-  console.log(classes);
   return (
     <div>
       <SectionTitle
