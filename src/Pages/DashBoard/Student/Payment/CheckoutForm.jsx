@@ -13,7 +13,6 @@ const CheckoutForm = ({ amount, classItem }) => {
   const [errorMessage, setErrorMessage] = useState("");
   const [transactionId, setTransactionId] = useState("");
   const [paymentProcessing, setPaymentProcessing] = useState(false);
-  console.log(classItem);
   useEffect(() => {
     if (amount > 0) {
       axiosSecure.post("/create-payment-intent", { amount }).then((res) => {
@@ -65,6 +64,7 @@ const CheckoutForm = ({ amount, classItem }) => {
       const payment = {
         transactionId: paymentIntent.id,
         date: new Date(),
+        email: user?.email,
         classItem,
       };
       axiosSecure
