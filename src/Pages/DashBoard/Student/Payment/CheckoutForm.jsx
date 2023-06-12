@@ -38,7 +38,6 @@ const CheckoutForm = ({ amount, classItem }) => {
     });
 
     if (error) {
-      console.log("error=", error);
       setErrorMessage(error.message);
     } else {
       setErrorMessage("");
@@ -56,7 +55,7 @@ const CheckoutForm = ({ amount, classItem }) => {
       });
 
     if (confirmError) {
-      console.log(confirmError);
+      // console.log(confirmError);
     }
     setPaymentProcessing(false);
     if (paymentIntent.status == "succeeded") {

@@ -26,7 +26,6 @@ const PaymentHistory = () => {
       }
     },
   });
-  console.log("payments", payments);
   return (
     <div>
       <SectionTitle heading={"All payment history"}></SectionTitle>

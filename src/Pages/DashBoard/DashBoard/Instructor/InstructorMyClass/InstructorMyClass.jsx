@@ -14,7 +14,7 @@ const InstructorMyClass = () => {
       return res.data;
     },
   });
-  console.log(classes);
+
   return (
     <div>
       <SectionTitle heading={"MY Classes"}></SectionTitle>

@@ -4,7 +4,7 @@ const GetUpdate = () => {
   return (
     <div className="useBg w-full bg-gray-500 p-10">
       <div className="container flex flex-col flex-wrap content-center justify-center p-4 py-20 mx-auto md:p-10">
-        <h1 className="text-5xl antialiased font-semibold leading-none text-center text-gray-100">
+        <h1 className="text-3xl md:text-5xl antialiased font-semibold leading-none text-center text-gray-100">
           Get Our Updates
         </h1>
         <p className="pt-2 pb-8 text-xl antialiased text-center text-gray-100">
