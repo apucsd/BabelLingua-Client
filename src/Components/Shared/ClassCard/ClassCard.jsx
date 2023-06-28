@@ -48,11 +48,7 @@ const ClassCard = ({ singleClass, refetch }) => {
     }
   };
   return (
-    <div
-      className={`${
-        availableSeats === 0 ? "bg-red-200" : "bg-base-100"
-      }   m-1 px-6 pt-6 pb-2 rounded-xl group`}
-    >
+    <div className={` m-1 px-6 pt-6 pb-2 rounded-xl group`}>
       <div className="relative">
         <Fade>
           <img
@@ -72,7 +68,13 @@ const ClassCard = ({ singleClass, refetch }) => {
           <span>
             <FaChair className="h-6 w-6 text-indigo-600 mb-1.5"></FaChair>
           </span>
-          <p>{availableSeats} Available Seats</p>
+          <p
+            className={`${
+              availableSeats === 0 ? "text-red-600" : "bg-base-100"
+            }  `}
+          >
+            {availableSeats} Available Seats
+          </p>
         </div>
 
         <div className="flex space-x-1 items-center gap-5">

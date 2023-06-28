@@ -84,7 +84,7 @@ const Navbar = () => {
   };
   return (
     <div
-      className={`navbar bg-base-100 border-b-4 border-secondary  z-10 shadow-xl`}
+      className={`px-8 navbar bg-base-100 border-b-4 border-secondary  z-10 shadow-xl`}
     >
       <div className="navbar-start">
         <div className="dropdown">
@@ -113,9 +113,8 @@ const Navbar = () => {
           </ul>
         </div>
         <Link className="" to="/">
-          <span className=" normal-case text-xl">
-            <FaGraduationCap className="text-4xl text-primary"></FaGraduationCap>{" "}
-            BabelLingua
+          <span className=" normal-case md:text-3xl">
+            <span className="text-fuchsia-500 md:text-4xl">ᗷᗩᗷEᒪ</span>ᒪIᑎGᑌᗩ
           </span>
         </Link>
       </div>

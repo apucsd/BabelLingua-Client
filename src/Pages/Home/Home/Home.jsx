@@ -9,10 +9,10 @@ import tutorBanner from "../../../assets/images/tutor-bg.jpg";
 const Home = () => {
   return (
     <div>
+      <Banner></Banner>
       <div>
         <img src={tutorBanner} alt="" />
       </div>
-      <Banner></Banner>
       <PopularClass></PopularClass>
       <PopularInstructor></PopularInstructor>
 
