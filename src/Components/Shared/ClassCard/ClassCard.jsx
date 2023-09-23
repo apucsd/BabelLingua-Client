@@ -48,11 +48,13 @@ const ClassCard = ({ singleClass, refetch }) => {
     }
   };
   return (
-    <div className={` m-1 px-6 pt-6 pb-2 rounded-xl group`}>
-      <div className="relative">
+    <div
+      className={`backdrop-blur-3xl m-1 min-h-16 px-6 pt-6 pb-2 rounded-xl group`}
+    >
+      <div className="relative ">
         <Fade>
           <img
-            className="w-full h-52 rounded-xl transform group-hover:scale-105 transition duration-500"
+            className="w-full h-52 rounded-xl transform group-hover:scale-105 transition duration-300  hover:bg-gray-900 hover:opacity-80"
             src={classImage}
             alt="class"
           />
@@ -68,11 +70,7 @@ const ClassCard = ({ singleClass, refetch }) => {
           <span>
             <FaChair className="h-6 w-6 text-indigo-600 mb-1.5"></FaChair>
           </span>
-          <p
-            className={`${
-              availableSeats === 0 ? "text-red-600" : "bg-base-100"
-            }  `}
-          >
+          <p className={`${availableSeats === 0 ? "text-red-600" : ""}  `}>
             {availableSeats} Available Seats
           </p>
         </div>
@@ -83,7 +81,7 @@ const ClassCard = ({ singleClass, refetch }) => {
         </div>
         <button
           disabled={disableBtn}
-          className={`sm:w-full my-2 border rounded py-2 px-8 text-center bg-indigo-600 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-700 focus:ring-opacity-50 ${
+          className={`w-full my-2 mt-auto border rounded py-2 px-8 text-center bg-indigo-600 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-700 focus:ring-opacity-50 ${
             disableBtn ? "opacity-50 cursor-not-allowed" : "cursor-pointer"
           }`}
           onClick={() => handleBookClass(singleClass)}

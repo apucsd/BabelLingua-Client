@@ -4,7 +4,7 @@ import faq from "../../../../assets/anim/faq.json";
 import Lottie from "lottie-react";
 const FrequentlyAsked = () => {
   return (
-    <section className="bg-base-100">
+    <section className="">
       <div className="grid md:grid-cols-2">
         <div className="container flex flex-col justify-center p-4 mx-auto md:p-8">
           <p className="p-2 -mb-10 text-sm font-medium tracking-wider text-center uppercase">

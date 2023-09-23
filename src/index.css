@@ -5,19 +5,15 @@
   @apply sm:w-full cursor-pointer  my-2 border rounded py-2 px-8 text-center bg-indigo-600 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-700 focus:ring-opacity-50;
 }
 
-.navbar a {
-  background: transparent !important;
-  border-bottom: 2px solid transparent !important;
-  border-radius: 0 !important;
+body {
+  background-image: url("/bg_bggenerator_com.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
 }
-.navbar a:hover {
-  background: transparent !important;
-  border-bottom: 2px solid #4338ca !important;
-  border-radius: 0 !important;
-}
-.useBg {
-  background-image: url("./assets//images//authbg.png");
-  background-color: rgba(0, 0, 0, 0.397);
-  background-blend-mode: multiply;
-  height: 100%;
+.glow-text {
+  color: #ffffff; /* Text color */
+  text-shadow: 0 0 10px #ffffff, 0 0 20px #908ef4, 0 0 30px #7e8cf6; /* White glow effect */
 }

@@ -16,7 +16,7 @@ const Instructors = () => {
   });
 
   return (
-    <div>
+    <div className="backdrop-blur">
       {instructors.length > 0 && (
         <div>
           <SectionTitle heading={"Our Instructors"}></SectionTitle>

@@ -1,12 +1,13 @@
 import React from "react";
 import profileCover from "../../../assets/images/banner.jpg";
 import { Fade } from "react-awesome-reveal";
+import { Link } from "react-router-dom";
 
 const InstructorCard = ({ instructor }) => {
   return (
     <div
       key={instructor._id}
-      className="border mt-4 mx-4 md:mx-0 bg-base-100 rounded-lg text-base-900"
+      className="border mt-4 mx-4 md:mx-0  rounded-lg text-base-900"
     >
       <div className="rounded-t-lg h-32 overflow-hidden">
         <Fade duration={1000}>
@@ -27,9 +28,12 @@ const InstructorCard = ({ instructor }) => {
       </div>
 
       <div className="p-4 border-t  mt-2">
-        <button className="w-full block mx-auto rounded-full bg-gray-900 hover:shadow-lg font-semibold text-white px-6 py-2">
+        <Link
+          to={`classes/${instructor._id}`}
+          className="w-full block mx-auto rounded-full bg-gray-900 hover:shadow-lg font-semibold text-white px-6 py-2"
+        >
           See Classes
-        </button>
+        </Link>
       </div>
     </div>
   );

@@ -64,7 +64,7 @@ const Register = () => {
   };
 
   return (
-    <div className="bg-base-100 py-6 sm:py-8 lg:py-12">
+    <div className=" py-6 sm:py-8 lg:py-12">
       <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
         <h2 className="mb-4 text-center text-2xl font-bold text-base-800 md:mb-8 lg:text-3xl">
           Create an account
@@ -72,7 +72,7 @@ const Register = () => {
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="mx-auto max-w-lg p-3 border"
+          className="mx-auto max-w-lg p-3 border backdrop-blur-3xl"
         >
           <div className="flex flex-col gap-4 p-4 md:p-8">
             <div>
