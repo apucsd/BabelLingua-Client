@@ -130,7 +130,7 @@ const Banner = () => {
             </div>
           </div>
         </div>
-        <div className="mockup-phone">
+        <div className="mockup-phone mx-2">
           <div className="camera"></div>
           <div className="display">
             <div className="artboard artboard-demo phone-1 flex">
