@@ -15,7 +15,7 @@ const PopularInstructor = () => {
     },
   });
   return (
-    <div>
+    <div className="p-10">
       <SectionTitle
         heading="Popular instructors"
         subheading="Top 6 Popular Instructors"

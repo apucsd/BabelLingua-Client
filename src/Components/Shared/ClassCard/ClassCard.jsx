@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
-import { FaChair, FaDollarSign } from "react-icons/fa";
+import { FaChair } from "react-icons/fa";
 import useUserRole from "../../../hooks/useUserRole";
 import useCustomAxios from "../../../hooks/useCustomAxios";
 import useAuth from "../../../hooks/useAuth";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 
 const ClassCard = ({ singleClass, refetch }) => {
@@ -49,7 +48,7 @@ const ClassCard = ({ singleClass, refetch }) => {
   };
   return (
     <div
-      className={`backdrop-blur-3xl m-1 min-h-16 px-6 pt-6 pb-2 rounded-xl group`}
+      className={`backdrop-blur-3xl m-1 min-h-16 px-6 pt-6 pb-2 rounded-xl group relative`}
     >
       <div className="relative ">
         <Fade>
@@ -63,12 +62,14 @@ const ClassCard = ({ singleClass, refetch }) => {
           <small>{instructorName}</small>
         </p>
       </div>
-      <h1 className="mt-4  text-2xl font-bold cursor-pointer">{className}</h1>
+      <h1 className="mt-4  text-2xl font-bold cursor-pointer min-h-[80px]">
+        {className}
+      </h1>
 
-      <div className="my-4">
+      <div className="my-4 mt-auto min-h-fit">
         <div className="flex space-x-1 items-center gap-3">
           <span>
-            <FaChair className="h-6 w-6 text-indigo-600 mb-1.5"></FaChair>
+            <FaChair className="h-4 w-5 text-indigo-600 mb-1.5"></FaChair>
           </span>
           <p className={`${availableSeats === 0 ? "text-red-600" : ""}  `}>
             {availableSeats} Available Seats

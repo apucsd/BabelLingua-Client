@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import BannerSwiper from "../../../Components/swiper/BannerSwiper";
 
 const Banner = () => {
   return (
@@ -134,11 +135,7 @@ const Banner = () => {
           <div className="camera"></div>
           <div className="display">
             <div className="artboard artboard-demo phone-1 flex">
-              <img
-                className="w-full mx-auto"
-                src="https://i.ibb.co/q1b9PrT/ghore-boshe-Spoken-English-course-thumbnail-by-Munzereen-Shahid-16x9.jpg"
-                alt=""
-              />
+              <BannerSwiper></BannerSwiper>
             </div>
           </div>
         </div>

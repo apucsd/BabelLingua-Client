@@ -18,7 +18,7 @@ const Classes = () => {
     },
   });
   return (
-    <div>
+    <div className="p-10">
       <SectionTitle heading={"All Classes"}></SectionTitle>
       <div>
         <div className="grid md:grid-cols-3 justify-center">
